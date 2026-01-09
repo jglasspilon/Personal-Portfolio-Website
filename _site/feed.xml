@@ -1,21 +1,21 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://localhost:4000/Personal-Portfolio-Website/</id>
+  <id>http://localhost:4000/</id>
   <title>Julian Glass-Pilon</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2026-01-09T14:00:25-05:00</updated>
+  <updated>2026-01-09T14:21:33-05:00</updated>
   <author>
     <name>Julian Glass-Pilon</name>
-    <uri>http://localhost:4000/Personal-Portfolio-Website/</uri>
+    <uri>http://localhost:4000/</uri>
   </author>
-  <link rel="self" type="application/atom+xml" href="http://localhost:4000/Personal-Portfolio-Website/feed.xml"/>
+  <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
-    href="http://localhost:4000/Personal-Portfolio-Website/"/>
+    href="http://localhost:4000/"/>
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
   <rights> © 2026 Julian Glass-Pilon </rights>
-  <icon>/Personal-Portfolio-Website/assets/img/favicons/favicon.ico</icon>
-  <logo>/Personal-Portfolio-Website/assets/img/favicons/favicon-96x96.png</logo>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
 
 </feed>
