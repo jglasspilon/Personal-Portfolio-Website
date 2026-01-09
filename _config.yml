@@ -21,7 +21,7 @@ description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
 
 url: "https://jglasspilon.github.io"
-baseurl: ""
+baseurl: "" 
 
 github:
   username: jglasspilon
