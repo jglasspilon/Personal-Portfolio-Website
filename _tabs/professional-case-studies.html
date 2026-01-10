@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Professional Case Studies
+title: Professional Projects
 icon: fas fa-briefcase
 collection: tabs
 order: 2
@@ -13,20 +13,9 @@ permalink: /professional-case-studies/
   </h1>
 </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const imgs = document.querySelectorAll(".portfolio-thumb img");
-
-    imgs.forEach(img => {
-      img.removeAttribute("data-glightbox");
-      const wrapper = img.closest("a.popup.img-link");
-      if (wrapper) wrapper.replaceWith(img);
-    });
-  });
-</script>
-
 <div class="portfolio-grid">
-  {% for project in site["professional-case-studies"] %}
+  {% assign sorted = site["professional-case-studies"] | sort: "order" %}
+  {% for project in sorted %}
   <a class="portfolio-card" href="{{ project.url | relative_url }}">
     <div class="portfolio-thumb">
       <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }}">

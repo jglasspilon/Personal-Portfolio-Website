@@ -43,6 +43,9 @@ collections:
   professional-case-studies:
     output: true
     permalink: /professional-case-studies/:name/
+  personal-projects:
+    output: true
+    permalink: /personal-projects/:name/
 
 assets:
   css:
