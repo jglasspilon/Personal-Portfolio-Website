@@ -1,3 +1,37 @@
+.emphasis {
+  font-size: 105%;
+}
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.section-info {
+  padding-left: 1rem;
+}
+
+.badges {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0.5rem;
+}
+
+.badge-wrapper {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center; /* vertical centering */
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
 .portfolio-card {
   display: flex;
   flex-direction: column;
@@ -34,31 +68,13 @@
   padding: 1rem;
 }
 
-.section-info {
-    padding-left: 1rem;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.sections-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.emphasis {
-  font-size: 105%;
-}
-
 @media (max-width: 992px) {
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .badges {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
