@@ -121,6 +121,21 @@ summary img.details-image {
   position: relative;
 }
 
+.details-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.zoom-icon {
+  position: absolute;
+  bottom: 12px;
+  right: 4px;
+  font-size: 0.5rem;
+  color: #FFF;
+  pointer-events: none; 
+}
+
+
 /* ---------- SLIDER ---------- */
 
 .details-image {
