@@ -92,6 +92,21 @@ details[open] .details-body {
   opacity: 1;
 }
 
+.framework-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.0rem;
+}
+
+.framework-projects-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
 
 /* ---------- SUMMARY LAYOUT + CUSTOM ARROW ---------- */
 
@@ -113,16 +128,17 @@ summary::marker {
 }
 
 summary::before {
-  content: "▸"; 
+  content: "▸";
   position: absolute;
   left: 0;
-  top: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 1.5em;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 details[open] > summary::before {
-  transform: rotate(90deg);
+  transform: translateY(-50%) rotate(90deg);
 }
 
 summary img.details-image {
@@ -160,7 +176,15 @@ details .details-body {
   font-size: 1rem;
   color: #FFF;
   opacity: 0.35;
-  pointer-events: none;
+}
+
+.zoom-icon-dark {
+  position: absolute;
+  bottom: 12px;
+  right: 2px;
+  font-size: 1rem;
+  color: #000;
+  opacity: 0.35;
 }
 
 /* ---------- SLIDER ---------- */
@@ -227,6 +251,10 @@ details .details-body {
   }
 
   .portfolio-sections-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .framework-projects-grid {
     grid-template-columns: 1fr;
   }
 

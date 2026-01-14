@@ -1,0 +1,292 @@
+---
+title: "Unity Broadcast Framework"
+layout: page
+description: "Broadcast-friendly Unity framework designed to streamline the control and creation of data driven graphics and increase iteration speed."
+thumbnail: "/assets/img/work/unity-framework/abc-elections.gif"
+permalink: /professional-case-studies/unity-framework/
+order: 2
+parent: professional-case-studies
+---
+
+{% include accordion.js %}
+{% include badge-handler.js %}
+
+<div class="badges" style="padding-bottom: 20px">
+  <div class="badge-wrapper" style="background: #000000">
+    <img src="https://img.shields.io/badge/Unity-000000?style=for-the-badge&logo=unity" alt="Unity" class="no-lightbox">
+  </div>
+  <div class="badge-wrapper" style="background: #239120">
+    <img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white" alt="C#" class="no-lightbox">
+  </div>
+  <div class="badge-wrapper" style="background: #000000">
+    <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON" class="no-lightbox">
+  </div>
+  <div class="badge-wrapper" style="background: #005571">
+    <img src="https://img.shields.io/badge/HTTP-005571?style=for-the-badge" alt="HTTP" class="no-lightbox">
+  </div>
+</div>
+
+<p><strong>Role</strong>: Framework Architect<br /><strong>Company</strong>: Astucemedia</p>
+
+<hr />
+
+<p>
+  A modular, event-driven Unity framework designed to power real-time interactive touchscreen experiences in broadcast environments. Built to support deterministic startup, dynamic content composition, and live data interaction while remaining flexible for designers and integrators.
+</p>
+
+<h3>Architecture Philosophy</h3>
+<p>
+  This framework was designed around <strong>predictability, modular ownership, and data-driven interaction</strong>.
+  In live broadcast scenarios, interactive systems must boot reliably, respond instantly to user input, and remain adaptable under tight iteration constraints.
+</p>
+
+<p>
+  The systems below demonstrate how these principles were applied across startup orchestration, content management, and interactive data binding. <span class="emphassis"><strong>Expand a card</strong></span> below to explore the design challenges, technical approach, and resulting impact.
+</p>
+
+<div class="portfolio-card">
+  <details style="padding-left: 0.75em; padding-right: 0.75em">
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Deterministic Startup & Initialization Pipeline</span><br>
+        A centralized startup system that guarantees predictable initialization order and safe dependency injection, which in turn vastly improved initialization stability and scalability by enforcing loose coupling for all intializable systems.
+      </div>
+
+      <div class="details-image-wrapper">
+        <img src="/assets/img/work/unity-framework/startup-lifecycle.png" alt="Deterministic Startup & Initialization Pipeline" class="details-image">
+        <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <hr />
+      <div class="slider">
+        <button class="arrow left">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <section>
+              <h2>Outcome</h2>
+              <p>
+                Ensured reliable, repeatable application startup across development, staging, and live broadcast environments, improving stability, scalability, and reliability.
+              </p>
+              <ul>
+                <li><strong>Before ➙</strong> unpredictable startup order causing intermittent bugs and hard-to-reproduce failures.</li>
+                <li><strong>After ➙</strong> fully deterministic startup behavior with decoupled logic to enable effortless scaling of new initializable systems.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>Designed a centralized startup controller to orchestrate system initialization.</li>
+                <li>Defined explicit initialization phases to resolve dependencies safely.</li>
+                <li>Supported local and remote configuration loading.</li>
+                <li>Handled startup failure states and recovery paths.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Challenge</h2>
+              <p>
+                Unity applications with multiple interconnected systems often suffer from non-deterministic startup behavior, race conditions, and fragile initialization order — issues that are unacceptable in live broadcast environments.
+              </p>
+            </section>
+            <section>
+              <h2>Solution</h2>
+              <p>
+                Introduce a deterministic startup pipeline that initializes systems in a flexible yet defined sequence, ensuring each subsystem only activates once its dependencies are ready. This guarantees a stable and predictable runtime state.
+              </p>
+            </section>
+            <section>
+              <h2>Key Learnings</h2>
+              <ul>
+                <li>Explicit initialization phases dramatically improve system stability and reliability.</li>
+                <li>Predictable startup and agile system scalability is critical for high-stakes, live environments.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <button class="arrow right">›</button>
+      </div>
+      <hr />
+    </div>
+  </details>
+</div>
+
+
+<div class="portfolio-card">
+  <details style="padding-left: 0.75em; padding-right: 0.75em">
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Interactive Content Management Pipeline</span><br>
+        A modular, data-driven system for composing and switching interactive touchscreen content at runtime, providing design freedom through component-driven data binding and quick integration turnarround through abstracted out transition logic.
+      </div>
+
+      <div class="details-image-wrapper">
+        <img src="/assets/img/work/unity-framework/content-mangement-pipeline.png" alt="Interactive Content Management Pipeline" class="details-image">
+        <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <hr />
+      <div class="slider">
+        <button class="arrow left">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <section>
+              <h2>Outcome</h2>
+              <p>
+                Enabled rapid iteration and dynamic composition of interactive screens by abstracting out transition logic and keeping all content self contained and pluggable into the existing framework.
+              </p>
+              <ul>
+                <li><strong>Before ➙</strong> content changes required code modifications and often introduced bugs to other content due to their tightly couple nature.</li>
+                <li><strong>After ➙</strong> interactive content reconfigured through data with minimal engineering involvement.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>Designed a content management layer to control screen composition.</li>
+                <li>Defined data-driven content definitions using JSON.</li>
+                <li>Enabled runtime content switching and layout reconfiguration.</li>
+                <li>Maintained separation between framework systems and show-specific logic.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Challenge</h2>
+              <p>
+                Interactive touchscreen projects often hard-code content logic directly into scenes or scripts, making iteration slow and increasing the risk of regressions when layouts change. Iteration speed is key in high-paced, high-stakes environments such as live broadcast and any regression bugs or iteration speed hurdles affect development credibility and client satisfaction.
+              </p>
+            </section>
+            <section>
+              <h2>Solution</h2>
+              <p>
+                Abstract out interactive content into modular units defined by data rather than code. The framework instantiates and manages content dynamically, allowing layouts and interactions to evolve without touching core systems.
+              </p>
+            </section>
+            <section>
+              <h2>Key Learnings</h2>
+              <ul>
+                <li>Data-driven content pipelines significantly reduce iteration time.</li>
+                <li>Strong boundaries between framework and content improve long-term maintainability.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <button class="arrow right">›</button>
+      </div>
+      <hr />
+    </div>
+  </details>
+</div>
+
+<div class="portfolio-card">
+  <details style="padding-left: 0.75em; padding-right: 0.75em">
+    <summary class="details-content">
+      <div class="summary-text">
+        <span class="details-title">Event-Driven Interaction & Data Binding Layer</span><br>
+        A reactive data binding system that synchronizes live data, user input, and UI while keeping everything component-driven for decoupled integration and quick iteration.
+      </div>
+
+      <div class="details-image-wrapper">
+        <img src="/assets/img/work/unity-framework/data-binding.png" alt="Event-Driven Interaction & Data Binding Layer" class="details-image">
+        <span class="zoom-icon-dark fa-solid fa-magnifying-glass-plus"></span>
+      </div>
+    </summary>
+    <div class="details-body">
+      <hr />
+      <div class="slider">
+        <button class="arrow left">‹</button>
+
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <section>
+              <h2>Outcome</h2>
+              <p>
+                Enabled responsive, real-time UI updates and interactions while preserving a clean, component-based workflow.
+              </p>
+              <ul>
+                <li><strong>Before ➙</strong> polling-based updates and duplicated interaction logic increased complexity.</li>
+                <li><strong>After ➙</strong> reactive, plug-and-play components with cleaner architecture and faster iteration.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Responsibilities</h2>
+              <ul>
+                <li>Designed a subscription-based data binding model.</li>
+                <li>Implemented event-driven updates for UI and interaction systems.</li>
+                <li>Supported plug-and-play binding components for designers.</li>
+                <li>Provided manual and automatic update control for performance tuning.</li>
+              </ul>
+            </section>
+            <section>
+              <h2>Challenge</h2>
+              <p>
+                Synchronizing UI and interaction logic with live or rapidly changing data often leads to polling-heavy systems, duplicated logic, and tightly coupled dependencies.
+              </p>
+            </section>
+            <section>
+              <h2>Solution</h2>
+              <p>
+                Introduced an event-driven subscription model where components react only to relevant data changes. This removed the need for polling while giving designers flexible, component-based access to live data.
+              </p>
+            </section>
+            <section>
+              <h2>Key Learnings</h2>
+              <ul>
+                <li>Event-driven interaction scales better under live data conditions.</li>
+                <li>Component-based binding empowers designers while protecting system integrity.</li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <button class="arrow right">›</button>
+      </div>
+      <hr />
+    </div>
+  </details>
+</div>
+
+<hr />
+
+<h2>Deployed Projects using Framework</h2>
+<p>Below are a selection of projects launched and deployed to the client.</p>
+<p style="font-size:75%"><i>*All animated GIFs shown below are from publicly released projects and are the property of their respective owners. I claim no ownership or rights; they are displayed solely to demonstrate the results of my contributions as development & integration lead on these projects.</i></p>
+<div class="framework-projects-grid">
+  <div class="framework-projects-card">
+    <div class="section-info">
+      <h3><b>ABC US Elections Touchscreen</b></h3>
+    </div>
+    <div class="portfolio-thumb">
+      <img src="../assets/img/work/unity-framework/abc-elections.gif" alt="ABC 2024 US Elections Touchscreen">
+    </div>
+    <div class="portfolio-info">
+      <p>
+        <strong>Project Timeline</strong>: 6 months.<br />
+        <strong>My role</strong>: Development & Integrations Lead.<br />
+        <strong>Dev team size</strong>: <i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i><br />
+        <hr />
+        Elections Touchscreen Interactive used On-Air by ABC News for the 2024 US Elections. This is the most recent project leveraging this framework as of 2026 giving the client access to a large number of various map and grid related election graphics. All seamlessly controlled and orchestrated by this framework.
+      </p>
+    </div>
+  </div>
+  <div class="framework-projects-card">
+    <div class="section-info">
+      <h3><b>Yahoo Finance Touchscreen</b></h3>
+    </div>
+    <div class="portfolio-thumb">
+      <img src="../assets/img/work/unity-framework/YahooFinanceTouchscreenInteractive.gif" alt="Persoanl Game Projects">
+    </div>
+    <div class="portfolio-info">
+      <p>
+        <strong>Project Timeline</strong>: 6 months.<br />
+        <strong>My role</strong>: Development & Integrations Lead.<br />
+        <strong>Dev team size</strong>: <i class="fa-solid fa-user"></i><br />
+        <hr />
+        Finance Touchscreen Interactive used On-Air daily by Yahoo Finance since 2020. This was the framework's initial pilot project covering a range of finance related data-driven graphics.
+      </p>
+    </div>
+  </div>
+</div>
