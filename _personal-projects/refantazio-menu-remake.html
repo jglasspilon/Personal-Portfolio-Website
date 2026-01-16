@@ -1,7 +1,7 @@
 ---
-title: "Metaphor Refantazio UI Remake"
+title: "Metaphor Refantazio UI Recreation"
 layout: page
-description: "Remake of the award winning Metaphor Refantazio's UI & Menu. Built in Unity. <hr/><i>In early stages of development</i>."
+description: "Recreation of the award winning Metaphor Refantazio's UI & Menu. Built in Unity. <hr/><i>In early stages of development</i>."
 thumbnail: "/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png"
 permalink: /personal-projects/refantazio-menu-remake/
 order: 1
@@ -23,26 +23,34 @@ parent: personal-projects
   <div class="badge-wrapper" style="background: #0A5AFF">
     <img src="https://img.shields.io/badge/Copilot-0A5AFF?style=for-the-badge&logo=copilot&logoColor=white" alt="Copilot" class="no-lightbox">
   </div>
+  <div class="badge-wrapper" style="background: #5C5543">
+    <img src="https://img.shields.io/badge/GIMP-5C5543?style=for-the-badge&logo=gimp&logoColor=white" alt="GIMP" class="no-lightbox">
+  </div>
 </div>
 
 <hr />
 
 <p>
-  Currently working on a Metaphor Refantazio UI remake, exploring gen-AI tools for asset creation in order to reinforce my game dev roots.
+  Currently working on a Metaphor Refantazio UI recreation, exploring gen-AI tools for asset creation. 
   Built in Unity. <span class="emphasis"><strong>More to come as this project matures</strong></span>.
 </p>
 
 <div class="framework-projects-card">
   <div class="section-info">
-    <h3><b>Figma GenAI asset recreation POC</b></h3>
+    <h3><b>GenAI asset pipeline POC</b></h3>
   </div>
   <div class="compare">
-    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-original.png" alt="Figma GenAI asset recreation POC - original" class="before no-lightbox">
-    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Figma GenAI asset recreation POC - remake"  class="after no-lightbox">
+    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Figma GenAI asset recreation POC - remake" class="before no-lightbox">
+    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-original.png" alt="Figma GenAI asset recreation POC - original" class="after no-lightbox">
+    <div class="label before-label">Original</div>
+    <div class="label after-label">Recreation</div>
     <div class="handle"></div>
   </div>
   <div class="portfolio-info">
-    <p>Recreation of menu launch screen built in figma using CoPilot to generate all visible assets. We can see the asset generation is an approximation of the original but for my purposes of an homage this is deemed acceptable.</p>
+    <p>Mockup of menu launch screen built in figma using CoPilot to generate all individual assets, with GIMP for touchups.<br /><strong>Purpose:</strong> confirm the reliability of basic GenAI for asset generation.</p>
+    <hr />
+    <p>Although not matching the original assets 100%, the style is maintained and deemed acceptable for this technical recreation.</p>
+    <p><i>*Further research necessary to identify a more appropriate font.</i></p>
   </div>
 </div>
 <hr />
@@ -60,37 +68,55 @@ parent: personal-projects
   const compare = document.querySelector('.compare');
   const after = document.querySelector('.after');
   const handle = document.querySelector('.handle');
+  const beforeLabel = document.querySelector('.before-label');
+  const afterLabel = document.querySelector('.after-label');
 
-  compare.addEventListener('pointermove', e => {
+  let isDragging = false;
+  let velocity = 0;
+  let lastX = 50;
+
+  function updateSlider(clientX) {
     const rect = compare.getBoundingClientRect();
-    const x = Math.min(Math.max(0, e.clientX - rect.left), rect.width);
+    const x = Math.min(Math.max(0, clientX - rect.left), rect.width);
     const pct = (x / rect.width) * 100;
 
     after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
     handle.style.left = pct + '%';
-    compare.style.setProperty('--pos', pct + '%');
-  });
+    beforeLabel.style.right = `calc(${100 - pct}% + 12px)`;
+    afterLabel.style.left = `calc(${pct}% + 12px)`;
 
-  let velocity = 0;
-  let lastX = 50;
-
-  compare.addEventListener('pointermove', e => {
-    const rect = compare.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width * 100;
-    velocity = x - lastX;
-    lastX = x;
-    update(x);
-  });
-
-  function update(pct) {
-    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    handle.style.left = pct + '%';
+    velocity = pct - lastX;
+    lastX = pct;
   }
 
-  compare.addEventListener('pointerup', () => {
-    let pct = lastX + velocity * 4;
-    pct = Math.min(100, Math.max(0, pct));
-    update(pct);
+  // --- Desktop hover support ---
+  compare.addEventListener('pointermove', e => {
+    if (e.pointerType === 'mouse' && !isDragging) {
+      updateSlider(e.clientX);
+    }
   });
 
+  // --- Touch + mouse drag support ---
+  compare.addEventListener('pointerdown', e => {
+    isDragging = true;
+    compare.setPointerCapture(e.pointerId);
+    updateSlider(e.clientX);
+  });
+
+  compare.addEventListener('pointermove', e => {
+    if (isDragging) updateSlider(e.clientX);
+  });
+
+  compare.addEventListener('pointerup', e => {
+    if (!isDragging) return;
+    isDragging = false;
+
+    let pct = lastX + velocity * 4;
+    pct = Math.min(100, Math.max(0, pct));
+
+    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = pct + '%';
+    beforeLabel.style.right = `calc(${100 - pct}% + 12px)`;
+    afterLabel.style.left = `calc(${pct}% + 12px)`;
+  });
 </script>
