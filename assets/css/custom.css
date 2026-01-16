@@ -237,6 +237,66 @@ details .details-body {
   overflow-wrap: break-word;
 }
 
+/* --------------image compare feature-------------- */
+
+.compare {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+
+.compare::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--pos, 50%) - 20px);
+  width: 40px;
+  cursor: ew-resize;
+}
+
+.compare img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: none !important;
+}
+
+.after {
+  clip-path: inset(0 50% 0 0);
+}
+
+
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient( to bottom, transparent, white 40%, white 60%, transparent );
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.handle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid #0003;
+  transform: translate(-50%, -50%);
+}
+
+
 /* --------------responsivity tweaks---------------- */
 @media (max-width: 992px) {
   .portfolio-grid {

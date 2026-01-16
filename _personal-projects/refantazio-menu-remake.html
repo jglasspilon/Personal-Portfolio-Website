@@ -32,9 +32,19 @@ parent: personal-projects
   Built in Unity. <span class="emphasis"><strong>More to come as this project matures</strong></span>.
 </p>
 
-<img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Metaphor Refantazio Menu Remake">
-<p>Recreation of menu launch screen built in figma using CoPilot to generate all visible assets.</p>
-
+<div class="framework-projects-card">
+  <div class="section-info">
+    <h3><b>Figma GenAI asset recreation POC</b></h3>
+  </div>
+  <div class="compare">
+    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-original.png" alt="Figma GenAI asset recreation POC - original" class="before no-lightbox">
+    <img src="/assets/img/projects/refantazio-menu-remake/refantazio-menu-remake.png" alt="Figma GenAI asset recreation POC - remake"  class="after no-lightbox">
+    <div class="handle"></div>
+  </div>
+  <div class="portfolio-info">
+    <p>Recreation of menu launch screen built in figma using CoPilot to generate all visible assets. We can see the asset generation is an approximation of the original but for my purposes of an homage this is deemed acceptable.</p>
+  </div>
+</div>
 <hr />
 
 <h2>Track My Progress</h2>
@@ -45,3 +55,42 @@ parent: personal-projects
     </a><br />
   </p>
 </div>
+
+<script>
+  const compare = document.querySelector('.compare');
+  const after = document.querySelector('.after');
+  const handle = document.querySelector('.handle');
+
+  compare.addEventListener('pointermove', e => {
+    const rect = compare.getBoundingClientRect();
+    const x = Math.min(Math.max(0, e.clientX - rect.left), rect.width);
+    const pct = (x / rect.width) * 100;
+
+    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = pct + '%';
+    compare.style.setProperty('--pos', pct + '%');
+  });
+
+  let velocity = 0;
+  let lastX = 50;
+
+  compare.addEventListener('pointermove', e => {
+    const rect = compare.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width * 100;
+    velocity = x - lastX;
+    lastX = x;
+    update(x);
+  });
+
+  function update(pct) {
+    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    handle.style.left = pct + '%';
+  }
+
+  compare.addEventListener('pointerup', () => {
+    let pct = lastX + velocity * 4;
+    pct = Math.min(100, Math.max(0, pct));
+    update(pct);
+  });
+
+</script>
