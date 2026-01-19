@@ -89,7 +89,7 @@ details .details-body {
 }
 
 details[open] .details-body {
-  max-height: 2000px; /* large enough to fit content */
+  max-height: 2000px;
   opacity: 1;
 }
 
@@ -292,6 +292,24 @@ details .details-body {
   border-radius: 50%;
   border: 2px solid #0003;
   transform: translate(-50%, -50%);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 
 .label {
